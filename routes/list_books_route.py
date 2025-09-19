@@ -10,9 +10,9 @@ def my_list():
     books_cursor = databases['books'].find()
 
     books = list(books_cursor)
+    for book in books:
+        print(book) #debug
 
-    name_books = [book['title'] for book in books]
-    print(name_books)
 
     return render_template("list.html", books=books)
 

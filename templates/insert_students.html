@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuovo Studente</title>
+</head>
+<body>
+    <h2>Inserisci un nuovo studente</h2>
+    <form action="/add_student" method="POST">
+        <label>Matricola:</label>
+        <input type="number" name="student_id" required><br><br>
+
+        <label>Nome e Cognome:</label>
+        <input type="text" name="name" required><br><br>
+
+        <label>Genere:</label>
+        <input type="text" name="gender" required><br><br>
+
+        <label>Età:</label>
+        <input type="number" name="age" required><br><br>
+
+        <label>Indirizzo Principale:</label>
+        <input type="text" name="major" required><br><br>
+
+        <label>Indirizzo Specialistico:</label>
+        <input type="text" name="interested_domain" required><br><br>
+
+        <button type="submit">Aggiungi Studente</button>
+    </form>
+    <a href="/">Go back</a>
+</body>
+</html>

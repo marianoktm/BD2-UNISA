@@ -1,5 +1,5 @@
 from flask import Flask
-from routes import index_route, form_route, list_books_route
+from routes import index_route, form_route, list_books_route, insert_students_route
 
 
 def init_flask_app():
@@ -7,8 +7,13 @@ def init_flask_app():
 
     flaskApp = Flask(__name__)
 
+    #index
     flaskApp.register_blueprint(index_route.indexBlueprint)
-    flaskApp.register_blueprint(form_route.formBlueprint)
+
+    #insert_students
+    flaskApp.register_blueprint(insert_students_route.studentsBlueprint)
+
+    #view list
     flaskApp.register_blueprint(list_books_route.listBlueprint)
 
     return flaskApp
