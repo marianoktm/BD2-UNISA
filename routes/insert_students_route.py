@@ -13,10 +13,10 @@ def insert_students():
 @studentsBlueprint.post("/add_student")
 def add_student():
 
-    student_id = request.form["student_id"]
+    student_id = int(request.form["student_id"])
     name = request.form["name"]
     gender = request.form["gender"]
-    age = request.form["age"]
+    age = int(request.form["age"])
     major = request.form["major"]
     interested_domain = request.form["interested_domain"]
 
@@ -24,7 +24,7 @@ def add_student():
     existing_student = students.find_one({"Student ID": student_id})
 
     if existing_student:
-        error_message = f"Errore: Uno studente con Student ID '{student_id}' esiste già."
+        error_message = f"Errore: Uno studente con Matricola '{student_id}' esiste già."
         return render_template("error_insert_student.html", error_message=error_message)
 
     new_student = {
