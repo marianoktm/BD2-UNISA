@@ -3,7 +3,7 @@ from config.config import get_databases
 
 listBlueprint = Blueprint("list", __name__)
 
-@listBlueprint.route("/list")
+@listBlueprint.post("/list")
 def my_list():
 
     databases = get_databases()
@@ -11,7 +11,8 @@ def my_list():
 
     books = list(books_cursor)
 
-    #name_books = [book['title'] for book in books]
+    name_books = [book['title'] for book in books]
+    print(name_books)
 
     return render_template("list.html", books=books)
 

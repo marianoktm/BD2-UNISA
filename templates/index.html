@@ -2,14 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student's Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
-<h2>Enter your data</h2>
-    <form action="/form" method="post">
-      Name: <input type="text" name="name"><br><br>
-      Age: <input type="number" name="age"><br><br>
-      <input type="submit" value="Submit">
-    </form>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl w-full">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Student's Library Menu</h2>
+
+        <!-- Sezione Gestione Libri -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestione Libri</h3>
+            <div class="flex flex-wrap gap-4">
+                <form action="/insert_students" method="POST">
+                    <button type="submit" class="py-2 px-3 bg-purple-600 text-white font-semibold rounded-sm shadow hover:bg-purple-700 transition duration-200 flex items-center">
+                        <i class="fas fa-book fa-fw mr-2"></i><i class="fas fa-plus fa-xs"></i> Inserisci Nuovo Libro
+                    </button>
+                </form>
+                <form action="/list" method="POST">
+                    <button type="submit" class="py-2 px-3 bg-blue-600 text-white font-semibold rounded-sm shadow hover:bg-blue-700 transition duration-200 flex items-center">
+                        <i class="fas fa-list fa-fw mr-2"></i> Vai alla Lista
+                    </button>
+                </form>
+                <form action="/available_books" method="POST">
+                    <button type="submit" class="py-2 px-3 bg-teal-600 text-white font-semibold rounded-sm shadow hover:bg-teal-700 transition duration-200 flex items-center">
+                        <i class="fas fa-book-open fa-fw mr-2"></i> Libri Disponibili
+                    </button>
+                </form>
+                <form action="/borrowed_books" method="POST">
+                    <button type="submit" class="py-2 px-3 bg-indigo-600 text-white font-semibold rounded-sm shadow hover:bg-indigo-700 transition duration-200 flex items-center">
+                        <i class="fas fa-hand-holding fa-fw mr-2"></i> Libri in Prestito
+                    </button>
+                </form>
+                <form action="/delete_books" method="POST">
+                    <button type="submit" class="py-2 px-3 bg-red-600 text-white font-semibold rounded-sm shadow hover:bg-red-700 transition duration-200 flex items-center">
+                        <i class="fas fa-trash fa-fw mr-2"></i> Eliminazione di Libri
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sezione Gestione Prestiti -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestione Prestiti</h3>
+            <div class="flex flex-wrap gap-4">
+                <form action="/borrow_books" method="POST">
+                    <button type="submit" class="py-2 px-3 bg-yellow-600 text-white font-semibold rounded-sm shadow hover:bg-yellow-700 transition duration-200 flex items-center">
+                        <i class="fas fa-right-left fa-fw mr-2"></i> Effettua Prestito
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sezione Gestione Studenti -->
+        <div>
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestione Studenti</h3>
+            <div class="flex flex-wrap gap-4">
+                <form action="/insert_books" method="POST">
+                    <button type="submit" class="py-2 px-3 bg-green-600 text-white font-semibold rounded-sm shadow hover:bg-green-700 transition duration-200 flex items-center">
+                        <i class="fas fa-user fa-fw mr-2"></i><i class="fas fa-plus fa-xs"></i> Inserisci Nuovo Studente
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
