@@ -18,7 +18,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             padding: 20px 30px;
-            max-width: 600px;
+            max-width: 1000px;
             width: 100%;
         }
 
@@ -36,9 +36,15 @@
 
         th, td {
             border: none;
-            padding: 12px 15px;
-            text-align: left;
+            padding: 12px 20px;
+            width: 100%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            min-width: 120px;
         }
+        th:nth-child(1), td:nth-child(1) { width: 25%; }
+        th:nth-child(2), td:nth-child(2) { width: 35%; }
+        th:nth-child(3), td:nth-child(3) { width: 20%; }
 
         th {
             background-color: #3498db;
@@ -69,11 +75,17 @@
         <h1>📚 Elenco dei Libri</h1>
         <table>
             <tr>
-                <th>Nome del Libro</th>
+                <th>Name</th>
+                <th>Authors</th>
+                <th>ISBN</th>
             </tr>
-            {% for name in name_books %}
+
+            {% for book in books %}
             <tr>
-                <td>{{ name }}</td>
+                <td>{{ book['title'] }}</td>
+                <td>{{ book['authors'] }}</td>
+                <td>{{ book['isbn'] }}</td>
+
             </tr>
             {% endfor %}
         </table>
