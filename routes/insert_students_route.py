@@ -25,7 +25,7 @@ def add_student():
 
     if existing_student:
         error_message = f"Errore: Uno studente con Matricola '{student_id}' esiste già."
-        return render_template("error_insert_student.html", error_message=error_message)
+        return render_template("error/error_insert_student.html", error_message=error_message)
 
     new_student = {
         "Student ID": student_id,

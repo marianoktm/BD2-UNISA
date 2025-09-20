@@ -56,7 +56,7 @@ def add_books():
 
     if existing_book:
         error_message = f"Errore: Un libro con ISBN '{isbn}' esiste già."
-        return render_template("error_insert_book.html", error_message=error_message)
+        return render_template("error/error_insert_book.html", error_message=error_message)
 
     books.insert_one(new_book)
 
