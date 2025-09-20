@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserisci Nuovo Libro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Inserisci un Nuovo Libro</h2>
+        <form action="/add_books" method="POST" class="space-y-4">
+
+            <!-- Titolo -->
+            <div>
+                <label for="title" class="block text-sm font-medium text-gray-700">Titolo:</label>
+                <input type="text" name="title" id="title" required
+                       class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <!-- ISBN -->
+            <div>
+                <label for="isbn" class="block text-sm font-medium text-gray-700">ISBN:</label>
+                <input type="text" name="isbn" id="isbn" required
+                       class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <!-- Numero di pagine -->
+            <div>
+                <label for="pageCount" class="block text-sm font-medium text-gray-700">Numero di Pagine:</label>
+                <input type="number" name="pageCount" id="pageCount" required
+                       class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <!-- Data di pubblicazione -->
+            <div>
+                <label for="publishedDate" class="block text-sm font-medium text-gray-700">Data di Pubblicazione (ISO 8601):</label>
+                <input type="text" name="publishedDate" id="publishedDate" required
+                       placeholder="2009-02-02T08:00:00.000+00:00"
+                       class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <!-- Autori -->
+            <div>
+                <label for="authors" class="block text-sm font-medium text-gray-700">Autori:</label>
+                <textarea name="authors" id="authors" required rows="3"
+                          placeholder="Inserisci un autore per riga"
+                          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+            </div>
+
+            <!-- Categorie -->
+            <div>
+                <label for="categories" class="block text-sm font-medium text-gray-700">Categorie:</label>
+                <textarea name="categories" id="categories" required rows="3"
+                          placeholder="Inserisci una categoria per riga"
+                          class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                                 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+            </div>
+
+            <!-- Numero di copie -->
+            <div>
+                <label for="copy" class="block text-sm font-medium text-gray-700">Numero di Copie:</label>
+                <input type="number" name="copy" id="copy" required min="1"
+                       class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <!-- Pulsanti -->
+            <div class="flex justify-between items-center">
+                <button type="submit"
+                        class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200">
+                    Aggiungi Libro
+                </button>
+                <a href="/" class="text-blue-600 hover:underline">Torna Indietro</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
