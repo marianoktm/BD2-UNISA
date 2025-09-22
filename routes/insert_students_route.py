@@ -6,9 +6,11 @@ studentsBlueprint = Blueprint("students", __name__)
 get_databases = get_databases()
 students = get_databases["students"]
 
-@studentsBlueprint.post("/insert_students")
+
+@studentsBlueprint.get("/insert_students")
 def insert_students():
     return render_template("insert_students.html")
+
 
 @studentsBlueprint.post("/add_student")
 def add_student():
@@ -37,6 +39,5 @@ def add_student():
     }
 
     students.insert_one(new_student)
-
 
     return render_template("add_students.html", new_student=new_student)

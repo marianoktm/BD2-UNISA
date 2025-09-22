@@ -6,9 +6,11 @@ delete_booksBlueprint = Blueprint('delete_books', __name__)
 database = get_databases()
 books = database['books']
 
-@delete_booksBlueprint.post('/delete_books')
+
+@delete_booksBlueprint.get('/delete_books')
 def delete_books():
     return render_template("delete_books.html")
+
 
 @delete_booksBlueprint.post('/trash_books')
 def trash_books():

@@ -1,26 +1,30 @@
 from flask import Flask
-from routes import index_route, list_books_route, insert_students_route, insert_books_route, delete_books_route
+from routes import borrowed_books_route, borrow_books_route, index_route, list_books_route, insert_students_route, insert_books_route, delete_books_route
 
 
 def init_flask_app():
-
-
     flaskApp = Flask(__name__)
 
-    #index
+    # index
     flaskApp.register_blueprint(index_route.indexBlueprint)
 
-    #insert_students
+    # insert_students
     flaskApp.register_blueprint(insert_students_route.studentsBlueprint)
 
-    #insert_books
+    # insert_books
     flaskApp.register_blueprint(insert_books_route.booksBlueprint)
 
-    #delete_books
+    # delete_books
     flaskApp.register_blueprint(delete_books_route.delete_booksBlueprint)
 
-    #view list
+    # view list
     flaskApp.register_blueprint(list_books_route.listBlueprint)
+
+    # borrow books
+    flaskApp.register_blueprint(borrow_books_route.borrowBlueprint)
+
+    # borrowed books
+    flaskApp.register_blueprint(borrowed_books_route.borrowedBlueprint)
 
     return flaskApp
 
