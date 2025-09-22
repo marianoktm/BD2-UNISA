@@ -1,5 +1,5 @@
 from flask import Flask
-from routes import borrowed_books_route, borrow_books_route, index_route, list_books_route, insert_students_route, insert_books_route, delete_books_route
+from routes import available_books_route, borrowed_books_route, borrow_books_route, index_route, list_books_route, insert_students_route, insert_books_route, delete_books_route
 
 
 def init_flask_app():
@@ -25,6 +25,9 @@ def init_flask_app():
 
     # borrowed books
     flaskApp.register_blueprint(borrowed_books_route.borrowedBlueprint)
+
+    # available books
+    flaskApp.register_blueprint(available_books_route.availableBlueprint)
 
     return flaskApp
 

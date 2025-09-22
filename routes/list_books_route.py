@@ -13,4 +13,6 @@ def my_list():
     for book in books:
         print(book)  # debug
 
-    return render_template("list.html", books=books)
+    pagetitle = "Lista dei Libri"
+
+    return render_template("list.html", books=books, pagetitle=pagetitle)
