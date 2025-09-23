@@ -16,11 +16,28 @@
             {% endfor %}
         </div>
     </div>
+
+    <!-- Sezione Gestione Prestiti -->
+    <div class="mb-8">
+        <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestione Prestiti</h3>
+        <div class="flex flex-wrap gap-4">
+            {% for btn in btn_prestiti %}
+                {% set button = btn %}
+                {% include "new/button.html" %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Sezione Gestione Studenti -->
+    <div class="mb-8">
+        <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestione Studenti</h3>
+        <div class="flex flex-wrap gap-4">
+            {% for btn in btn_studenti %}
+                {% set button = btn %}
+                {% include "new/button.html" %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
-
-
-{% for btn in btn_prestiti %}
-    {% include "new/button.html" with context %}
-{% endfor %}
 
 {% endblock %}

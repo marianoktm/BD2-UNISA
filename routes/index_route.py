@@ -6,7 +6,7 @@ indexBlueprint = Blueprint("index", __name__)
 @indexBlueprint.route("/")
 def index():
     # Define buttons as a list of dictionaries
-    buttons_gestionelibri = [
+    buttons_libri = [
         {"label": "Inserisci Nuovo Libro", "action": "/insert_books", "method": "get"},
         {"label": "Vai alla Lista Libri", "action": "/list", "method": "get"},
         {"label": "Libri Disponibili al Prestito", "action": "/available_books", "method": "get"},
@@ -14,6 +14,12 @@ def index():
         {"label": "Elimina un Libro", "action": "/delete_books", "method": "get"}
     ]
 
-    buttons_gestioneprestiti = []
+    buttons_prestiti = [
+        {"label": "Prendi un Libro in Prestito", "action": "/borrow_books", "method": "get"}
+    ]
 
-    return render_template('new/home.html', btn_libri=buttons_gestionelibri, btn_prestiti=buttons_gestioneprestiti)
+    buttons_studenti = [
+        {"label": "Inserisci un Nuovo Studente", "action": "/insert_students", "method": "get"}
+    ]
+
+    return render_template('new/home.html', btn_libri=buttons_libri, btn_prestiti=buttons_prestiti, btn_studenti=buttons_studenti)
