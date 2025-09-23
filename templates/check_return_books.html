@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libri Restituiti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Libri Restituiti</h2>
+
+        <p class="text-gray-700 mb-4">Lo studente con matricola <span class="font-semibold">{{ student }}</span> ha restituito i seguenti libri:</p>
+
+        <ul class="list-disc list-inside mb-6">
+            {% for title in titles %}
+                <li>{{ title }}</li>
+            {% endfor %}
+        </ul>
+
+        <div class="text-center">
+            <a href="/" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200">Torna in Home</a>
+        </div>
+    </div>
+</body>
+</html>

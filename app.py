@@ -1,6 +1,6 @@
 from flask import Flask
 from routes import available_books_route, borrowed_books_route, borrow_books_route, index_route, list_books_route, \
-    insert_students_route, insert_books_route, delete_books_route, error_handler
+    insert_students_route, insert_books_route, delete_books_route, error_handler, return_books
 
 import db.mongodb_config
 
@@ -33,6 +33,9 @@ def init_flask_app():
 
     # error handler
     flaskApp.register_blueprint(error_handler.error_blueprint)
+
+    #return books
+    flaskApp.register_blueprint(return_books.returnBlueprint)
 
     return flaskApp
 

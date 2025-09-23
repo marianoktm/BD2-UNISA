@@ -15,7 +15,8 @@ def index():
     ]
 
     buttons_prestiti = [
-        {"label": "Prendi un Libro in Prestito", "action": "/borrow_books", "method": "get", "bg_color": "yellow", "icon_class1": "fas fa-right-left fa-fw mr-2"}
+        {"label": "Prendi un Libro in Prestito", "action": "/borrow_books", "method": "get", "bg_color": "yellow", "icon_class1": "fas fa-right-left fa-fw mr-2"},
+        {"label": "Restituzione Libro", "action": "/return_books", "method": "get", "bg_color": "green", "icon_class1": "fas fa-right-left fa-fw mr-2"}
     ]
 
     buttons_studenti = [

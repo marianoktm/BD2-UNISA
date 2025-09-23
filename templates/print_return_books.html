@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9fafb;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+        .container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px 30px;
+            max-width: 1000px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 16px;
+        }
+        th, td {
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            min-width: 120px;
+            text-align: center; /* Centra il testo nelle celle */
+        }
+        th:nth-child(1), td:nth-child(1) {
+            width: 2%;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 20%;
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 40%;
+        }
+        th:nth-child(4), td:nth-child(4) {
+            width: 17%;
+        }
+        th:nth-child(5), td:nth-child(5) {
+            width: 1%;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f6fa;
+        }
+        tr:hover {
+            background-color: #eaf4fb;
+            transition: background 0.2s ease-in-out;
+        }
+        td {
+            border-bottom: 1px solid #ddd;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form method="POST" action="/check_return_books">
+            <div class="form-section">
+                <h2> Libri della Matricola: {{ student }}</h2>
+                <input type="hidden" name="student_id" value="{{ student }}">
+                <button type="submit">Conferma</button>
+            </div>
+
+            <h3>📚 Libri Restituibili</h3>
+
+            <table>
+                <tr>
+                    <th>Check</th>
+                    <th>Titolo</th>
+                    <th>Autori</th>
+                    <th>ISBN</th>
+                    <th>Copie Disponibili</th>
+                </tr>
+                {% for book in books %}
+                <tr>
+                    <td><input type="checkbox" name="take_isbn" value="{{ book['isbn'] }}"></td>
+                    <td>{{ book['title'] }}</td>
+                    <td>{{ book['authors'] }}</td>
+                    <td>{{ book['isbn'] }}</td>
+                    <td>{{ book['copy'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </div>
+</body>
+</html>
