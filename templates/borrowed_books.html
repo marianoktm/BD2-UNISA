@@ -1,10 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Libri in Prestito</title>
+    <title>Libri e Prestiti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1e1e1e; /* dark mode */
+            color: #ddd;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .book {
+            background: #2a2a2a;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            width: 80%;
+            max-width: 650px;
+        }
+
+        h2 {
+            margin: 0 0 15px;
+            color: #a3c4f3;
+            text-align: center;
+        }
+
+        strong {
+            display: block;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+
+        ul {
+            list-style: none; /* tolgo i pallini standard */
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1); /* separatore sottile */
+        }
+
+        li:last-child {
+            border-bottom: none; /* tolgo l'ultima linea */
+        }
+
+        .student-name {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .student-id {
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
+    <h1>📚 Libri e Prestiti</h1>
 
+    {% for book in books %}
+    <div class="book">
+        <h2>{{ book.title }} (ISBN: {{ book.isbn }})</h2>
+        {% if book.borrowed_by %}
+            <strong>Studenti che hanno preso in prestito:</strong>
+            <ul>
+                {% for student in book.borrowed_by %}
+                <li>
+                    <span class="student-name">{{ student.Name }}</span>
+                    <span class="student-id">(Matricola: {{ student['Student ID'] }})</span>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="text-align: center;">Nessuno studente ha preso questo libro</p>
+        {% endif %}
+    </div>
+    {% endfor %}
 </body>
 </html>
