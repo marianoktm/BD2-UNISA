@@ -1,5 +1,5 @@
 <form action="{{ button.action }}" method="{{ button.method|default('post') }}" style="display:inline-block;">
-    <button class="py-2 px-3 bg-indigo-600 text-white font-semibold rounded-sm shadow hover:bg-indigo-700 transition duration-200 flex items-center" type="submit">
-        {{ button.label }}
+    <button class="py-2 px-3 bg-{{button.bg_color|default('blue')}}-600 text-white font-semibold rounded-sm shadow hover:bg-{{button.bg_color}}-700 transition duration-200 flex items-center" type="submit">
+        <i class="{{ button.icon_class1 }}"></i> <i class="{{ button.icon_class2 }}"></i> {{ button.label }}
     </button>
 </form>
