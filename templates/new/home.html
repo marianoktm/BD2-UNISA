@@ -1,0 +1,26 @@
+{% extends "new/base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl w-full">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Student's Library Menu</h2>
+
+    <!-- Sezione Gestione Libri -->
+    <div class="mb-8">
+        <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestione Libri</h3>
+        <div class="flex flex-wrap gap-4">
+            {% for btn in btn_libri %}
+                {% set button = btn %}
+                {% include "new/button.html" %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% for btn in btn_prestiti %}
+    {% include "new/button.html" with context %}
+{% endfor %}
+
+{% endblock %}

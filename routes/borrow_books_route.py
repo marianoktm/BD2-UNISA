@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from config.config import get_databases
+from db.DatabaseSingleton import get_databases
 
 borrowBlueprint = Blueprint("borrowBooks", __name__)
 
@@ -19,4 +19,6 @@ def borrow_books():
 def handler_borrow_books():
     lista_scelte = request.form.getlist("scelte")
     print(lista_scelte)
+
+    return render_template()
 

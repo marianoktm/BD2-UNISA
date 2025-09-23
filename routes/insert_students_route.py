@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from config.config import get_databases
+from db.DatabaseSingleton import get_databases
 
 studentsBlueprint = Blueprint("students", __name__)
 

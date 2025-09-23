@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from config.config import get_databases
+from db.DatabaseSingleton import get_databases
 
 delete_booksBlueprint = Blueprint('delete_books', __name__)
 

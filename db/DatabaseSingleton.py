@@ -1,5 +1,5 @@
-import mongodb_config
 from pymongo import MongoClient
+from db import mongodb_config
 
 
 class DatabaseSingleton:
@@ -10,7 +10,7 @@ class DatabaseSingleton:
     def __new__(cls, connection_string):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
-            cls._mongoClient = MongoClient(mongodb_config.connection_string)
+            cls._mongoClient = MongoClient(connection_string)
             cls._mongoDatabase = cls._mongoClient['project']
         return cls._instance
 
