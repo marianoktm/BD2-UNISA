@@ -20,13 +20,24 @@ def borrow_books():
 @borrowBlueprint.post("/take_books")
 def handler_borrow_books():
     selection_books_isbn = request.form.getlist("take_isbn") # books
-
     titles = []
 
     student = request.form.get("student_id")
     student_doc = students_collection.find_one({"Student ID": int(student)})
+
+    if len(selection_books_isbn) >= 5:
+        error_message = f"Errore: Non possono essere effettuati + di 5 prestiti contemporaneamente"
+        return render_template("error/generic_error.html", error_message=error_message)
+
     if not student_doc:
         error_message = f"Errore: la matricola {student} non esiste nel database studenti."
+        return render_template("error/generic_error.html", error_message=error_message)
+
+    current_books = student_doc.get("isbn", [])
+
+    # se ha più di 5 libri in prestito non può prendere altro libro
+    if len(current_books) >= 5:
+        error_message = f"Errore: lo studente con matricola {student} ha già troppi libri in prestito (massimo 5)."
         return render_template("error/generic_error.html", error_message=error_message)
 
     students_collection.update_one(
