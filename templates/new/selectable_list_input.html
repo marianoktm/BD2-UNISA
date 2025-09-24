@@ -1,0 +1,26 @@
+{% extends "new/base.html" %}
+
+{% block title %}List{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <form method="POST" action="{{ action }}">
+    <!-- Submit button -->
+    <div class="flex justify-center pt-4 space-x-10">
+        <input type="number"
+               name="student_id"
+               placeholder="Inserisci Matricola"
+               required>
+        <button type="submit" class="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition">
+        Submit
+        </button>
+    </div>
+
+    {% for book in books %}
+        {% set book = book %}
+        {% include "new/selectable_book_entry.html" %}
+    {% endfor %}
+    </form>
+</div>
+
+{% endblock %}

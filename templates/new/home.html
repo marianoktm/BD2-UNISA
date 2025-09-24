@@ -3,41 +3,20 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl w-full">
-    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Student's Library Menu</h2>
 
-    <!-- Sezione Gestione Libri -->
-    <div class="mb-8">
-        <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestione Libri</h3>
-        <div class="flex flex-wrap gap-4">
-            {% for btn in btn_libri %}
-                {% set button = btn %}
-                {% include "new/button.html" %}
-            {% endfor %}
-        </div>
-    </div>
+<!-- Sezione Gestione Libri -->
+{% set section_title = "Gestione Libri" %}
+{% set buttons = btn_libri %}
+{% include "new/button_section.html" %}
 
-    <!-- Sezione Gestione Prestiti -->
-    <div class="mb-8">
-        <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestione Prestiti</h3>
-        <div class="flex flex-wrap gap-4">
-            {% for btn in btn_prestiti %}
-                {% set button = btn %}
-                {% include "new/button.html" %}
-            {% endfor %}
-        </div>
-    </div>
+<!-- Sezione Gestione Prestiti -->
+{% set section_title = "Gestione Prestiti" %}
+{% set buttons = btn_prestiti %}
+{% include "new/button_section.html" %}
 
-    <!-- Sezione Gestione Studenti -->
-    <div class="mb-8">
-        <h3 class="text-xl font-semibold text-gray-700 mb-4">Gestione Studenti</h3>
-        <div class="flex flex-wrap gap-4">
-            {% for btn in btn_studenti %}
-                {% set button = btn %}
-                {% include "new/button.html" %}
-            {% endfor %}
-        </div>
-    </div>
-</div>
+<!-- Sezione Gestione Studenti -->
+{% set section_title = "Gestione Studenti" %}
+{% set buttons = btn_studenti %}
+{% include "new/button_section.html" %}
 
 {% endblock %}

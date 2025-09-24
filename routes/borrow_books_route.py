@@ -6,16 +6,17 @@ borrowBlueprint = Blueprint("borrowBooks", __name__)
 databases = get_databases()
 books_collection = databases["books"]
 students_collection = databases["students"]
-books_cursor = databases['books'].find({"copy": {"$gt": 0}})
 
-books = list(books_cursor)
 
 @borrowBlueprint.get("/borrow_books")
 def borrow_books():
+    books_cursor = databases['books'].find({"copy": {"$gt": 0}})
+
+    books = list(books_cursor)
 
     pagetitle = "Prestito Libri"
 
-    return render_template('borrow_books.html',books=books, pagetitle=pagetitle)
+    return render_template('new/selectable_list.html', books=books, pagetitle=pagetitle, action="/take_books", show_matricola_field=True)
 
 @borrowBlueprint.post("/take_books")
 def handler_borrow_books():

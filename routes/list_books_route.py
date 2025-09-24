@@ -15,4 +15,4 @@ def my_list():
 
     pagetitle = "Lista dei Libri"
 
-    return render_template("list.html", books=books, pagetitle=pagetitle)
+    return render_template("new/list.html", pagetitle=pagetitle, books=books)

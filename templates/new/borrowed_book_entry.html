@@ -1,0 +1,14 @@
+<div class="">
+    {% set book = book %}
+    {% include "new/book_entry.html" %}
+
+    {% if book.borrowed_by %}
+        <strong>preso in prestito da:</strong>
+        <ul class="space-y-1 text-sm text-gray-600">
+            {% for student in book.borrowed_by %}
+                {% set student = student%}
+                {% include "new/student_entry.html"%}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

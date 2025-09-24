@@ -14,4 +14,4 @@ def available_books():
 
     pagetitle = "Lista dei Libri Disponibili"
 
-    return render_template('list.html', books=books, pagetitle=pagetitle)
+    return render_template('new/list.html', books=books, pagetitle=pagetitle)

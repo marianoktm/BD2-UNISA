@@ -13,6 +13,7 @@ students_collection = database['students']
 def return_books():
     return render_template("return_books.html")
 
+
 @returnBlueprint.post("/print_return_books")
 def print_return_books():
     student = request.form.get("student_id")
@@ -37,7 +38,10 @@ def print_return_books():
     ]
 
     books = list(books_collection.aggregate(pipeline))
-    return render_template("print_return_books.html", books=books, student=student)
+
+    pagetitle = "Restituzione Libri"
+
+    return render_template("new/selectable_list.html", pagetitle=pagetitle, books=books, student=student, show_matricola_field=False, action="/check_return_books")
 
 @returnBlueprint.post("/check_return_books")
 def check_return_books():

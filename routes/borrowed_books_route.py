@@ -27,5 +27,6 @@ def borrowed_books():
     ]
 
     books = list(books_collection.aggregate(pipeline))
-    return render_template("borrowed_books.html", books=books)
+    pagetitle="Libri attualmente in prestito"
+    return render_template("new/borrowed_list.html", pagetitle=pagetitle, books=books)
 

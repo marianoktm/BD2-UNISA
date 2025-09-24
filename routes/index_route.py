@@ -23,4 +23,5 @@ def index():
         {"label": "Inserisci un Nuovo Studente", "action": "/insert_students", "method": "get", "bg_color": "green", "icon_class1": "fas fa-plus fa-xs", "icon_class2": "fas fa-user fa-fw mr-2"}
     ]
 
-    return render_template('new/home.html', btn_libri=buttons_libri, btn_prestiti=buttons_prestiti, btn_studenti=buttons_studenti)
+    pagetitle = "Student's Library Home"
+    return render_template('new/home.html', pagetitle=pagetitle, btn_libri=buttons_libri, btn_prestiti=buttons_prestiti, btn_studenti=buttons_studenti)
