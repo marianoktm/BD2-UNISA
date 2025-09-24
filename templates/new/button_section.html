@@ -1,0 +1,9 @@
+<div class="mb-8">
+    <h3 class="text-xl font-semibold text-gray-700 mb-4">{{ section_title }}</h3>
+    <div class="flex flex-wrap gap-4">
+        {% for btn in buttons %}
+            {% set button = btn %}
+            {% include "new/button.html" %}
+        {% endfor %}
+    </div>
+</div>

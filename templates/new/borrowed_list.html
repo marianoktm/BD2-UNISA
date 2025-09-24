@@ -1,0 +1,13 @@
+{% extends "new/base.html" %}
+
+{% block title %}List{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    {% for book in books %}
+        {% set book = book %}
+        {% include "new/borrowed_book_entry.html" %}
+    {% endfor %}
+</div>
+
+{% endblock %}

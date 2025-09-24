@@ -1,0 +1,15 @@
+<div class="">
+    {% set book = book %}
+    {% include "new/book_entry.html" %}
+
+  <label class="block" for="select-{{ book['_id'] }}">
+    <input id="select-{{ book['_id'] }}" type="checkbox"
+           name="take_isbn" value="{{ book['isbn'] }}"
+           class="peer sr-only">
+    <div class="text-center py-2 bg-blue-600 text-white text-sm font-medium cursor-pointer
+             transition-colors rounded-t-2xl rounded-b-2xl peer-checked:bg-green-600">
+      <span class="block peer-checked:hidden">Select</span>
+      <span class="hidden peer-checked:block">Selected</span>
+    </div>
+  </label>
+</div>

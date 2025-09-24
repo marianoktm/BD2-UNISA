@@ -1,0 +1,66 @@
+<div class="max-w-2xl bg-white rounded-2xl shadow-md overflow-hidden p-4 grid grid-cols-[auto,1fr] gap-4">
+  <!-- Thumbnail -->
+  <div class="row-span-2">
+    <img src="{{ book.thumbnailUrl }}" alt="{{ book.title }}"
+         class="w-32 h-40 object-contain bg-white-100 rounded">
+  </div>
+
+  <!-- Title + Authors -->
+  <div>
+    <h3 class="text-lg font-semibold text-gray-800 mb-1">
+      {{ book.title }}
+    </h3>
+    <p class="text-sm text-gray-600">
+      By {{ book.authors | join(', ') }}
+    </p>
+  </div>
+
+  <!-- Descriptions + Footer -->
+  <div class="flex flex-col">
+    <!-- Short Description -->
+    <p id="short-{{ book._id }}" class="text-sm text-gray-700 mb-2">
+      {{ book.shortDescription }}
+    </p>
+
+    <!-- Long Description (hidden by default) -->
+    <p id="long-{{ book._id }}" class="hidden text-sm text-gray-700 mb-2">
+      {{ book.longDescription }}
+    </p>
+
+    <!-- Metadata + Button -->
+    <div class="mt-auto flex justify-between items-center text-xs text-gray-500">
+      <span>ISBN: {{ book.isbn }}</span>
+      <span>{{ book.pageCount }} pages</span>
+      {% if book['copy'] > 0 %}
+            <span>Copies: {{ book['copy'] }}</span>
+      {% else %}
+            <span class="text-red-600 font-semibold">Out of stock</span>
+      {% endif %}
+      </div>
+      <button onclick="toggleDesc('{{ book._id }}')"
+              class="ml-4 text-blue-600 text-sm font-medium hover:underline">
+        Show more
+      </button>
+  </div>
+</div>
+
+<script>
+  function toggleDesc(id) {
+    const shortDesc = document.getElementById("short-" + id);
+    const longDesc = document.getElementById("long-" + id);
+    const btn = event.target;
+
+    if (longDesc.classList.contains("hidden")) {
+      shortDesc.classList.add("hidden");
+      longDesc.classList.remove("hidden");
+      btn.textContent = "Show less";
+    } else {
+      shortDesc.classList.remove("hidden");
+      longDesc.classList.add("hidden");
+      btn.textContent = "Show more";
+    }
+  }
+</script>
+
+
+
