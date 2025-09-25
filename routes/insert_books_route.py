@@ -16,6 +16,7 @@ def insert_books():
 
 @booksBlueprint.post("/add_books")
 def add_books():
+    thumbnailUrl = request.form.get("thumbnail_url")
     title = request.form.get("title")
     isbn = request.form.get("isbn")
     pageCount = int(request.form.get("pageCount"))
@@ -43,6 +44,7 @@ def add_books():
         "isbn": isbn,
         "pageCount": pageCount,
         "publishedDate": publishedDate,
+        "thumbnailUrl": thumbnailUrl,
         "authors": authors,
         "categories": categories,
         "book_id": generate_unique_book_id(),

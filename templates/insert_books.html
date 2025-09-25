@@ -11,6 +11,7 @@
         <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Inserisci un Nuovo Libro</h2>
         <form action="/add_books" method="POST" class="space-y-4">
 
+
             <!-- Titolo -->
             <div>
                 <label for="title" class="block text-sm font-medium text-gray-700">Titolo:</label>
@@ -66,6 +67,14 @@
             <div>
                 <label for="copy" class="block text-sm font-medium text-gray-700">Numero di Copie:</label>
                 <input type="number" name="copy" id="copy" required min="1"
+                       class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
+                              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+
+            <!-- thumbnail_url -->
+            <div>
+                <label for="thumbnail_url" class="block text-sm font-medium text-gray-700">thumbnailUrl:</label>
+                <input type="text" name="thumbnail_url" id="thumbnail_url" required
                        class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm
                               focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
             </div>
